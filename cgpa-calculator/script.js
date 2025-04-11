@@ -57,7 +57,7 @@ function calculateCGPA() {
             const gradePoint = parseFloat(selectElement.value);
             const credits = courseCredits[courseCode];
             
-            // Skip Pass/Fail grades in CGPA calculation
+            
             // Skip Pass/Fail/U grades in CGPA calculation
             if (
                gradePoint === 0 && 
