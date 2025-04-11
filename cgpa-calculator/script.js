@@ -58,11 +58,16 @@ function calculateCGPA() {
             const credits = courseCredits[courseCode];
             
             // Skip Pass/Fail grades in CGPA calculation
-            if (gradePoint === 0 && (selectElement.options[selectElement.selectedIndex].text.includes('P') || 
-                                   selectElement.options[selectElement.selectedIndex].text.includes('F'))) {
-                continue;
-            }
-            
+            // Skip Pass/Fail/U grades in CGPA calculation
+            if (
+               gradePoint === 0 && 
+               (selectElement.options[selectElement.selectedIndex].text.includes('P') || 
+                selectElement.options[selectElement.selectedIndex].text.includes('F') || 
+                selectElement.options[selectElement.selectedIndex].text.includes('U')))
+            {
+          continue;
+           }
+
             // Add to total calculations
             totalCredits += credits;
             totalGradePoints += (credits * gradePoint);
